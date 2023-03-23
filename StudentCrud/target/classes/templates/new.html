@@ -1,0 +1,116 @@
+<html 
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Add Student</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+	<script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+        <link rel="stylesheet" href="" th:href="@{css/style.css}">
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!--NavBar-->
+        <div style="width:99%;
+        height:80px;
+        margin-left: 14%;">
+            <div class=“nav” align="center">
+                
+                <nav class="navbar navbar-dark bg-white">
+                    <!-- Navbar content -->
+                    <h1>             Student CRUD Operation Assignment </h1> 
+                  </nav>        
+            </div>
+        </div>
+
+        <!--SideBar-->
+        <div class="wrapper">
+
+            <div class="sidebar">
+                <!--profile image & text-->
+                <div class="profile">
+                <img src="" th:src="@{/image/studentAvatar.png}" alt=" "/>
+                <h3>Student System </h3>
+                <p>Dashboard</p>
+                </div>
+                    <!--menu item-->
+                    <ul>
+                        <li class="nav-item">
+                             <a>
+                            <i class="fas fa-home"></i>
+                            <span>Home</span></a>
+                        </li>
+                        <li class="nav-item">
+                             <a th:href="@{'/'}">
+                            <i class="fas fa-table"></i>
+                            <span>Students</span></a>
+                        </li>                      
+                        <li class="nav-item">
+                            <a th:href="@{'/new'}">
+                            <i class="fas fa-user-friends"></i>
+                            <span>Add Student</span></a>
+                        </li>               
+                    </ul>
+                </div>            
+            </div>
+        </div>  
+            <!--Content -->
+        <div style="
+        background-color: white;
+        width:84%;
+        height:800px;
+        float: left;
+        margin-left:15%;">
+            <!--inner nav bar -->
+            <div style="fill: aqua;
+            width:90%;
+            height:80px;
+            float: left;
+            margin-top: 10px;
+            margin-left: 5%;" align = "center">
+                <h2>Create New Student</h2>
+            </div>
+            <!--Main Content -->
+            <div style="
+            width:90%;
+            height:70%;
+            float: left;
+            margin-top: 10px;
+            margin-left: 5%;"  align="center">
+                <div class="col-sm-8" align="center">
+                    <form action="#" th:action="@{/save}" th:object="${student}" method="post">
+                <div alight="left">
+                            <tr>
+                                <label class="form-label" >Student Name</label>
+                                <td>
+                                <input type="hidden" th:field="*{id}" />
+                                <input type="text" th:field="*{studentname}" class="form-control" placeholder="Student Name" />
+                                </td>
+                            </tr>
+                        </div>                            
+                        <div alight="left">                        
+                            <tr>
+                                <label class="form-label" >Course</label>
+                                <td><input type="text" th:field="*{course}" class="form-control" placeholder="Course" /></td>
+                            </tr>
+                            </div>
+                            <div alight="left">
+                                <tr>
+                                <label class="form-label" >Fee</label>
+                                <td><input type="text" th:field="*{fee}" class="form-control" placeholder="Fee" /></td>
+                            </tr>
+                            </div>
+                            <br>
+                            <tr>
+                            <td colspan="2"><button type="submit" class="btn btn-info">Save</button> </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>                
+            </div>
+        </div>    
+    </body>
+</html>
